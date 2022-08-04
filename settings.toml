@@ -1,5 +1,0 @@
-[default]
-EXTENSIONS = [
-    "news_getter.extensions.database",
-    "news_getter.extensions.appearence",
-]

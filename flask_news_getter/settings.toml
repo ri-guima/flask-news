@@ -1,0 +1,5 @@
+[default]
+EXTENSIONS = [
+    "flask_news_getter.extensions.appearence:init_app",
+    "flask_news_getter.blueprints.news_getter:init_app",
+]
