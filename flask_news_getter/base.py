@@ -1,14 +1,15 @@
 from flask import Flask
-from importlib import import_module
-
-from flask_news_getter.extensions import configuration
 
 
 class NewsGetter:
 
-    def __init__(self, app: Flask=None) -> None:
+    def __init__(self, app: Flask = None) -> None:
         if app is not None:
             self.init_app(app)
 
     def init_app(app: Flask) -> None:
-        configuration.init_app(app)
+        extensions = [
+            'flask_news_getter.extensions.appearence:init_app',
+            'flask_news_getter.blueprints.news_getter:init_app',
+        ]
+        app.config['EXTENSIONS'].extend(extensions)
