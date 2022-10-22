@@ -1,5 +1,8 @@
 from flask import Flask
-from sqlalchemy.orm import Session, Engine
+from sqlalchemy.engine import Engine
+from sqlalchemy.orm import Session
+
+from .views import bp
 
 
 class NewsGetter:
@@ -12,3 +15,4 @@ class NewsGetter:
         app.news_getter = self
         app.db = db
         app.db_session = Session(db)
+        app.register_blueprint(bp)

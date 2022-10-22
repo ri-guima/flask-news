@@ -2,7 +2,7 @@ import pytest
 from flask import Flask
 from flask.testing import FlaskClient
 
-from project_name import create_app
+from news_getter.app import create_app
 
 
 @pytest.fixture(scope='module')
