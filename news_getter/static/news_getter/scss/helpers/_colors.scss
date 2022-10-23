@@ -1,0 +1,19 @@
+@use "sass:map";
+
+$palette: (
+  "error": hsl(8deg, 97%, 55%),
+  "on-error": hsl(0deg, 0%, 100%),
+  "background": hsl(0deg, 0%, 100%),
+  "on-background": hsl(0deg, 0%, 60%),
+  "primary": (
+      "light": hsl(255deg, 76%, 68%),
+      "regular": hsl(255deg, 76%, 48%),
+  ),
+  "on-primary": hsl(0deg, 0%, 100%),
+  "secondary": hsl(22deg, 100%, 50%),
+  "on-secondary": hsl(0deg, 0%, 100%)
+);
+
+@function get-color($color...) {
+  @return map.get($palette, $color...);
+}

@@ -1,0 +1,7 @@
+{% extend 'news_getter' %}
+
+{% block content %}
+  {% for n in news %}
+  <a href="{{ n.url }}">{{ n.title }}</a>
+  {% endfor %}
+{% endblock %}
