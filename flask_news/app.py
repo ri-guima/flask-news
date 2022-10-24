@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from dotenv import load_dotenv
 import os
 
-from news_getter import NewsGetter
+from flask_news import FlaskNews
 
 
 def create_app(testing: bool = False) -> Flask:
@@ -11,5 +11,5 @@ def create_app(testing: bool = False) -> Flask:
     app.testing = testing
     load_dotenv('.env')
     db = create_engine(os.getenv('SQLALCHEMY_DATABASE_URI'))
-    NewsGetter(app, db)
+    FlaskNews(app, db)
     return app
