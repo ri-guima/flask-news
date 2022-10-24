@@ -14,9 +14,9 @@ class NewsModel(Base):
     created_at = Column(Datetime, default=datetime.now(), nullable=False)
 
 
-class NewsSelectorModel(Base):
+class NewsSiteModel(Base):
     __tablename__ = 'news_selectors'
     id = Column(Integer, primary_key=True)
-    site_domain = Column(String, nullable=False)
+    domain = Column(String, nullable=False)
     title_selector = Column(String, nullable=False)
     url_selector = Column(String, nullable=False)

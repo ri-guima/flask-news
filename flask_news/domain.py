@@ -11,7 +11,9 @@ class News:
 
 
 @dataclass
-class NewsSelector:
+class NewsSite:
+    domain: str
+    pages: list[str]
     title_selector: str
     url_selector: str
 
