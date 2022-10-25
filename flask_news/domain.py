@@ -7,23 +7,20 @@ from datetime import datetime
 class News:
     title: str
     url: str
-    created_at: datetime
+    created_at: datetime = datetime.now()
 
 
 @dataclass
-class NewsSite:
-    domain: str
-    pages: list[str]
-    title_selector: str
-    url_selector: str
+class NewsSelector:
+    titles_selector: str
+    urls_selector: str
 
 
-class INewsFinder(ABC):
+class INewsGetter(ABC):
 
-    def __init__(self, content: str, news_selector: NewsSelector) -> None:
-        self.__content = content
+    def __init__(self, news_selector: NewsSelector) -> None:
         self.__news_selector = news_selector
 
     @abstractmethod
-    def findall(self) -> list[News]:
+    def get_from(self, content: str) -> list[News]:
         raise NotImplementedError()
