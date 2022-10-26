@@ -8,6 +8,9 @@ class News:
     title: str
     url: str
 
+    def __str__(self) -> str:
+        return self.title
+
 
 @dataclass
 class NewsSelector:

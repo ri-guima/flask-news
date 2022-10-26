@@ -2,6 +2,8 @@ from wtforms import StringField, URLField
 from wtforms.validators import DataRequired
 from flask_wtf import FlaskForm
 
+from .fields import NewsSiteField
+
 
 class AddNewsSiteForm(FlaskForm):
     site_url = URLField(validators=[DataRequired()])
