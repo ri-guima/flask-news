@@ -7,3 +7,8 @@ class AddNewsSiteForm(FlaskForm):
     site_url = URLField(validators=[DataRequired()])
     titles_selector = StringField(validators=[DataRequired()])
     urls_selector = StringField(validators=[DataRequired()])
+
+
+class AddNewsPageForm(FlaskForm):
+    site = NewsSiteField(validators=[DataRequired()])
+    name = StringField(validators=[DataRequired()])
