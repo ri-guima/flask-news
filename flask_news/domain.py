@@ -15,6 +15,13 @@ class NewsSelector:
     urls_selector: str
 
 
+@dataclass
+class NewsSite:
+    domain: str
+    pages: list[str]
+    news_selector: NewsSelector
+
+
 class INewsGetter(ABC):
 
     @abstractmethod
@@ -25,5 +32,9 @@ class INewsGetter(ABC):
 class INewsSiteRepository(ABC):
 
     @abstractmethod
-    def all(self) -> list[str]:
+    def create(self, domain: str, titles_selector: str, urls_selector: str) -> None:
+        raise NotImplementedError()
+
+    @abstractmethod
+    def all(self) -> list[NewsSite]:
         raise NotImplementedError()
