@@ -8,9 +8,6 @@ class News:
     title: str
     url: str
 
-    def __str__(self) -> str:
-        return self.title
-
 
 @dataclass
 class NewsSelector:
@@ -22,4 +19,11 @@ class INewsGetter(ABC):
 
     @abstractmethod
     def get_from(self, content: str) -> list[News]:
+        raise NotImplementedError()
+
+
+class INewsSiteRepository(ABC):
+
+    @abstractmethod
+    def all(self) -> list[str]:
         raise NotImplementedError()

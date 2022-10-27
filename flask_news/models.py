@@ -20,3 +20,6 @@ class NewsSiteModel(Base):
     domain = Column(String, nullable=False)
     title_selector = Column(String, nullable=False)
     url_selector = Column(String, nullable=False)
+
+    def __str__(self) -> str:
+        return self.domain

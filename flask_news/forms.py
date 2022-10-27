@@ -6,7 +6,7 @@ from .fields import NewsSiteField
 
 
 class AddNewsSiteForm(FlaskForm):
-    site_url = URLField(validators=[DataRequired()])
+    site_domain = URLField(validators=[DataRequired()])
     titles_selector = StringField(validators=[DataRequired()])
     urls_selector = StringField(validators=[DataRequired()])
 

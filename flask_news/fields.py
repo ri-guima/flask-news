@@ -7,4 +7,4 @@ class NewsSiteField(SelectField):
 
     def __init__(self, *args, **kwargs):
         super().__init__(args, kwargs)
-        self.choices = NewsSiteRepository().all()
+        self.choices = [(n, n) for n in NewsSiteRepository().all()]
