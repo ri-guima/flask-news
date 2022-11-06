@@ -38,3 +38,7 @@ class INewsSiteRepository(ABC):
     @abstractmethod
     def all(self) -> list[NewsSite]:
         raise NotImplementedError()
+
+    @abstractmethod
+    def add_page(self, id: int, page: str) -> None:
+        raise NotImplementedError()

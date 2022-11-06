@@ -1,7 +1,7 @@
 from flask import current_app as app
 
 from .domain import INewsSiteRepository, NewsSelector
-from .models import NewsSiteModel
+from .models import NewsSiteModel, PageModel
 
 
 class NewsSiteRepository(INewsSiteRepository):
@@ -15,3 +15,8 @@ class NewsSiteRepository(INewsSiteRepository):
 
     def all(self) -> list[str]:
         return [str(m) for m in app.db_session.query(NewsSiteModel).all()]
+
+    def add_page(self, id: int, name: str) -> None:
+        news_site = app.db_session.query(NewsSiteModel).get(id)
+        news_site.pages.append(PageModel(name=name))
+        app.db_session.commit()
