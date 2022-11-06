@@ -15,11 +15,12 @@ class NewsSelector:
     urls_selector: str
 
 
-@dataclass
 class NewsSite:
-    domain: str
-    pages: list[str]
-    news_selector: NewsSelector
+
+    def __init__(self, domain: str, news_selector: NewsSelector, pages: list[str] = []):
+        self.domain = domain
+        self.news_selector = news_selector
+        self.pages = pages
 
 
 class INewsGetter(ABC):
@@ -32,7 +33,11 @@ class INewsGetter(ABC):
 class INewsSiteRepository(ABC):
 
     @abstractmethod
-    def create(self, domain: str, news_selector: NewsSelector) -> None:
+    def create(self, domain: str, news_selector: NewsSelector) -> NewsSite:
+        raise NotImplementedError()
+
+    @abstractmethod
+    def get(self, id: int) -> NewsSite:
         raise NotImplementedError()
 
     @abstractmethod
@@ -40,5 +45,5 @@ class INewsSiteRepository(ABC):
         raise NotImplementedError()
 
     @abstractmethod
-    def add_page(self, id: int, page: str) -> None:
+    def add_page(self, id: int, name: str) -> None:
         raise NotImplementedError()

@@ -9,8 +9,8 @@
         <form class="form border-rounded" method="post" action="{{ url_for('flask_news.add_news_site_post') }}">
           {{ form.csrf_token }}
           <div class="row mb-3">
-            {{ form.site_url.label(class_="form-label") }}
-            {{ form.site_url(class_="form-control") }}
+            {{ form.site_domain.label(class_="form-label") }}
+            {{ form.site_domain(class_="form-control") }}
           </div>
           <div class="row mb-3">
             {{ form.titles_selector.label(class_="form-label") }}

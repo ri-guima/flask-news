@@ -3,7 +3,8 @@ from flask import Blueprint, Response, render_template, redirect, url_for
 from .forms import AddNewsSiteForm
 
 
-bp = Blueprint('flask_news', __name__, template_folder='templates', static_folder='static')
+bp = Blueprint('flask_news', __name__,
+               template_folder='templates', static_folder='static')
 
 
 @bp.get('/')
