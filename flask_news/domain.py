@@ -32,7 +32,7 @@ class INewsGetter(ABC):
 class INewsSiteRepository(ABC):
 
     @abstractmethod
-    def create(self, domain: str, titles_selector: str, urls_selector: str) -> None:
+    def create(self, domain: str, news_selector: NewsSelector) -> None:
         raise NotImplementedError()
 
     @abstractmethod

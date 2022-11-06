@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, DateTime
+from sqlalchemy import Column, String, Integer, DateTime
 from sqlalchemy.orm import declarative_base
 from datetime import datetime
 
@@ -11,7 +11,7 @@ class NewsModel(Base):
     id = Column(Integer, primary_key=True)
     title = Column(String, nullable=False)
     url = Column(String, nullable=False)
-    created_at = Column(Datetime, default=datetime.now(), nullable=False)
+    created_at = Column(DateTime, default=datetime.now(), nullable=False)
 
 
 class NewsSiteModel(Base):
