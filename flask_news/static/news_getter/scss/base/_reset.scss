@@ -1,0 +1,7 @@
+@use "helpers/colors";
+
+
+a {
+  color: colors.get-color("primary", "regular");
+  text-align: center;
+}

@@ -1,0 +1,13 @@
+@use "helpers/colors";
+
+
+.error-message {
+  background: colors.get-color("error");
+  color: colors.get-color("on-error");
+  left: 50vw;
+  position: fixed;
+  top: 20px;
+  transform: translateX(-50%);
+  width: 80%;
+  text-align: center;
+}

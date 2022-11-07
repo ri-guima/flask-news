@@ -1,0 +1,7 @@
+@use "helpers/colors";
+
+
+input[type=checkbox]:checked {
+  background: colors.get-color("secondary");
+  border-color: colors.get-color("secondary");
+}

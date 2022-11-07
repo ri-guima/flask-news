@@ -1,0 +1,12 @@
+@use "helpers/colors";
+
+
+.btn {
+  background: colors.get-color("secondary");
+  color: colors.get-color("on-secondary");
+}
+
+.btn:hover {
+  background: colors.get-color("background");
+  color: colors.get-color("on-background");
+}

@@ -1,0 +1,8 @@
+@use "helpers/colors";
+
+
+.border-rounded {
+  border: 1px solid colors.get-color("on-background");
+  border-radius: 7px;
+  padding: 20px 30px;
+}

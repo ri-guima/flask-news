@@ -1,0 +1,7 @@
+@use "helpers/colors";
+
+
+.form {
+  background: colors.get-color("primary", "regular");
+  color: colors.get-color("on-primary");
+}

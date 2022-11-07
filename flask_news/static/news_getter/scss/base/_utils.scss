@@ -1,0 +1,10 @@
+@use "helpers/colors";
+
+
+.primary-light-bg {
+  background: colors.get-color("primary", "light");
+}
+
+.primary-regular-bg {
+  background: colors.get-color("primary", "regular");
+}
