@@ -7,22 +7,25 @@ from .models import NewsSiteModel, PageModel
 class NewsSiteRepository(INewsSiteRepository):
 
     def create(self, domain: str, news_selector: NewsSelector) -> NewsSite:
-        app.db_session.add(NewsSiteModel(
-            domain=domain, titles_selector=news_selector.titles_selector,
-            urls_selector=news_selector.urls_selector))
+        model = NewsSiteModel(domain=domain,
+                              titles_selector=news_selector.titles_selector,
+                              urls_selector=news_selector.urls_selector)
+        app.db_session.add(model)
         app.db_session.commit()
-        return NewsSite(domain, news_selector)
+        return NewsSite(model.id, domain, news_selector)
 
     def get(self, id: int) -> NewsSite:
-        m = app.db_session.query(NewsSiteModel).get(id)
-        news_selector = NewsSelector(m.titles_selector, m.urls_selector)
-        return NewsSite(m.domain, news_selector, [str(p) for p in m.pages])
+        model = app.db_session.query(NewsSiteModel).get(id)
+        news_selector = NewsSelector(
+            model.titles_selector, model.urls_selector)
+        return NewsSite(model.id, model.domain, news_selector, [str(p) for p in model.pages])
 
     def all(self) -> list[NewsSite]:
         result = []
-        for m in app.db_session.query(NewsSiteModel).all():
-            news_selector = NewsSelector(m.titles_selector, m.urls_selector)
-            result.append(NewsSite(m.domain, news_selector))
+        for model in app.db_session.query(NewsSiteModel).all():
+            news_selector = NewsSelector(
+                model.titles_selector, model.urls_selector)
+            result.append(NewsSite(model.id, model.domain, news_selector))
         return result
 
     def add_page(self, id: int, name: str) -> None:

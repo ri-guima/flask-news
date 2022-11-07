@@ -5,6 +5,6 @@ from .repositories import NewsSiteRepository
 
 class NewsSiteField(SelectField):
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(args, kwargs)
-        self.choices = [(n, n) for n in NewsSiteRepository().all()]
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
+        self.choices = [(m.id, m.domain) for m in NewsSiteRepository().all()]

@@ -17,7 +17,8 @@ class NewsSelector:
 
 class NewsSite:
 
-    def __init__(self, domain: str, news_selector: NewsSelector, pages: list[str] = []):
+    def __init__(self, id: int, domain: str, news_selector: NewsSelector, pages: list[str] = []):
+        self.id = id
         self.domain = domain
         self.news_selector = news_selector
         self.pages = pages
